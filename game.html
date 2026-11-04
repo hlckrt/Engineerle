@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f4ef">
+    <meta name="description" content="Guess an Engineering Studies concept from progressive clues.">
+    <title>Play Engineerle — Engineering Studies</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="index.html">ENGINEERLE</a>
+      <a class="back-link" href="index.html">← Back</a>
+    </header>
+
+    <main class="game-shell">
+      <article class="game-card" aria-live="polite">
+        <div class="card-topline">
+          <span class="round-label" id="round-label">CONCEPT 01</span>
+          <span class="module-label" id="module-label">ENGINEERING STUDIES</span>
+        </div>
+
+        <div class="question-area">
+          <div class="question-mark" aria-hidden="true">?</div>
+          <p class="question-prompt" id="question-prompt">I’m a concept from your Year 12 course.<br>What am I?</p>
+        </div>
+
+        <section class="clue-panel" aria-labelledby="clue-title">
+          <div class="clue-heading">
+            <span id="clue-title">CLUES</span>
+            <span id="clue-count">1 / 5 revealed</span>
+          </div>
+          <ol class="clue-list" id="clue-list"></ol>
+        </section>
+
+        <form class="guess-form" id="guess-form" autocomplete="off">
+          <label for="guess-input">Your answer <span id="mode-label"></span></label>
+          <div class="input-row">
+            <input id="guess-input" name="guess" type="search" placeholder="Search engineering concepts…" aria-describedby="guess-feedback" spellcheck="false" autocomplete="off">
+            <datalist id="answer-suggestions"></datalist>
+            <button class="submit-button" type="submit">Guess <span aria-hidden="true">↗</span></button>
+          </div>
+          <p class="feedback" id="guess-feedback" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="card-actions">
+          <button class="hint-button" id="hint-button" type="button">Reveal next clue <span aria-hidden="true">＋</span></button>
+          <button class="next-button" id="next-button" type="button" hidden>Next concept <span aria-hidden="true">→</span></button>
+          <div class="round-stats">
+            <span>Score <strong id="score-number">—</strong></span>
+            <span>Solved <strong id="solved-count">0</strong></span>
+          </div>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
