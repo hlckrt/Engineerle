@@ -4,21 +4,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f5f4ef">
-    <meta name="description" content="Guess an Engineering Studies concept from progressive clues.">
+    <meta name="description" content="Play today's Engineering Studies concept challenge or endless practice rounds.">
     <title>Play Engineerle — Engineering Studies</title>
     <link rel="stylesheet" href="style.css">
+    <script src="theme.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body>
     <header class="site-header">
       <a class="wordmark" href="index.html">ENGINEERLE</a>
-      <a class="back-link" href="index.html">← Back</a>
+      <div class="header-actions">
+        <a class="back-link" href="index.html">← Home</a>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">◐</button>
+      </div>
     </header>
 
     <main class="game-shell">
       <article class="game-card" aria-live="polite">
         <div class="card-topline">
-          <span class="round-label" id="round-label">CONCEPT 01</span>
+          <span class="round-label" id="round-label">TODAY'S CHALLENGE</span>
           <span class="module-label" id="module-label">ENGINEERING STUDIES</span>
         </div>
 
@@ -47,12 +51,30 @@
 
         <div class="card-actions">
           <button class="hint-button" id="hint-button" type="button">Reveal next clue <span aria-hidden="true">＋</span></button>
-          <button class="next-button" id="next-button" type="button" hidden>Next concept <span aria-hidden="true">→</span></button>
+          <button class="next-button" id="next-button" type="button" hidden>Next practice concept <span aria-hidden="true">→</span></button>
           <div class="round-stats">
             <span>Score <strong id="score-number">—</strong></span>
-            <span>Solved <strong id="solved-count">0</strong></span>
+            <span id="round-label-detail">Daily</span>
           </div>
         </div>
+
+        <section class="completion-panel" id="completion-panel" aria-live="polite" hidden>
+          <h1 id="completion-title" tabindex="-1">Challenge complete</h1>
+          <p class="completion-answer" id="completion-answer"></p>
+          <p class="completion-score" id="completion-score"></p>
+          <div class="completion-stats">
+            <p><span>Your overall score</span><strong id="overall-score">0</strong></p>
+            <p><span>Community average</span><strong id="community-average">Unavailable</strong><small>Requires a shared score service.</small></p>
+          </div>
+          <div class="share-row">
+            <button class="share-button" id="share-button" type="button">Share score</button>
+            <p class="feedback" id="share-feedback" role="status" aria-live="polite"></p>
+          </div>
+          <div class="completion-actions">
+            <a class="secondary-button" href="index.html">Home</a>
+            <a class="play-button" id="completion-practice" href="game.html?mode=practice">Play practice <span aria-hidden="true">→</span></a>
+          </div>
+        </section>
       </article>
     </main>
   </body>
